@@ -1,0 +1,14 @@
+export enum Folder {
+  ALL = 'ALL TASKS',
+  IMPORTANT = 'IMPORTANT',
+  TRASH = 'TRASH',
+  CATEGORIES = 'CATEGORIES',
+}
+
+export enum TaskStatus {
+  BACKLOG = 'BACKLOG',
+  IN_PROGRESS = 'IN_PROGRESS',
+  TESTING = 'TESTING',
+  DONE = 'DONE',
+  CANCELED = 'CANCELED',
+}

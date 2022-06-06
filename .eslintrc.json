@@ -11,12 +11,12 @@
     "airbnb-typescript",
     "prettier",
     "plugin:prettier/recommended"
+    // "plugin:jsx-a11y/recommended"
   ],
 
   "parser": "@typescript-eslint/parser",
 
   "parserOptions": {
-    "project": "./tsconfig.json",
     "ecmaFeatures": {
       "jsx": true
     },
@@ -25,13 +25,75 @@
   },
 
   "plugins": ["react", "@typescript-eslint", "prettier"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": [
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking"
+      ],
+      "rules": {
+        "@typescript-eslint/no-unsafe-argument": "off",
+        "@typescript-eslint/no-unsafe-assignment": "off",
+        "@typescript-eslint/no-unsafe-member-access": "off",
+        "@typescript-eslint/no-unsafe-call": "off",
+        "@typescript-eslint/no-unsafe-return": "off"
+      },
+      "parserOptions": {
+        "project": ["./tsconfig.json"]
+      }
+    }
+  ],
 
   "rules": {
+    "react/prop-types": [0, {}],
+    "jsx-a11y/label-has-associated-control": [
+      "error",
+      {
+        "required": {
+          "some": ["nesting", "id"]
+        }
+      }
+    ],
+    "jsx-a11y/label-has-for": [
+      "error",
+      {
+        "required": {
+          "some": ["nesting", "id"]
+        }
+      }
+    ],
+    // "jsx-a11y/rule-name": 2,
+    // "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": ["off"],
+    "no-nested-ternary": "off",
+    "no-param-reassign": "off",
+    "no-return-assign": "off",
+    // "@typescript-eslint/no-explicit-any": "off",
+    // "no-useless-return": "off",
+    // "no-nested-ternary": "off",
+    "import/no-cycle": [0, { "maxDepth": 4 }],
+    "react/require-default-props": "off",
+    "no-console": "off",
+    "import/prefer-default-export": "off",
     "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".ts", ".tsx"] }],
-    "no-var": 1
+    "no-var": 1,
+    "prettier/prettier": ["warn", { "endOfLine": "auto" }],
+    "react/jsx-props-no-spreading": 0,
+    "react/function-component-definition": [
+      1,
+      {
+        "namedComponents": [
+          "function-declaration",
+          "function-expression",
+          "function-declaration",
+          "arrow-function"
+        ],
+        "unnamedComponents": ["function-expression", "arrow-function"]
+      }
+    ]
   },
-
   "settings": {
     "import/resolver": {
       "node": {

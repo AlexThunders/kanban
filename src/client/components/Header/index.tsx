@@ -1,15 +1,18 @@
-function Header() {
+import React from 'react';
+import { StyledHeader } from './Header.styled';
+
+const Header: React.FC = () => {
   return (
-    <div>
-      <h1>
-        Header CANBAN v0 {process.env.NODE_ENV} and {process.env.name}{' '}
-      </h1>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi,
-        obcaecati.
-      </p>
-    </div>
+    <StyledHeader>
+      <h1>Kanban</h1>
+      <a
+        title="alexthunders.ru"
+        href="https://alexthunders.ru"
+      >
+        Home
+      </a>
+    </StyledHeader>
   );
-}
+};
 
 export default Header;

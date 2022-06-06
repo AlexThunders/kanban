@@ -1,9 +1,55 @@
-body {
-  background-color: rgb(185, 138, 202);
+* {
+  box-sizing: border-box;
+  outline-color: red;
 }
 
-.App {
-  width: 70%;
-  height: 80%;
-  background-color: forestgreen;
+body {
+  background-color: #e4e4f8;
+  margin: 0;
+  font-family: sans-serif;
+  min-width: 320px;
+}
+
+.kanban-app {
+  display: grid;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  grid-template-areas:
+    'header'
+    'intro'
+    'appsidebar'
+    'info'
+    'board'
+    'trashcan';
+
+  @media screen and (min-width: 800px) {
+    padding: 0 10px;
+  }
+  @media screen and (min-width: 1020px) {
+    padding: 0 20px;
+  }
+
+  .appsidebar {
+    grid-area: appsidebar;
+  }
+
+  .board {
+    grid-area: board;
+  }
+
+  @media (min-width: 800px) {
+    grid-template-areas:
+      'header header'
+      'intro intro'
+      'apsidebar info'
+      'appsidebar board'
+    grid-template-columns: 1fr 6fr;
+  }
+  @media (min-width: 1020px) {
+    grid-template-columns: 1fr 8fr;
+  }
+  @media (min-width: 1400px) {
+    grid-template-columns: 1fr 11fr;
+  }
 }

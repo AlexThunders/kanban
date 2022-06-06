@@ -1,30 +1,37 @@
+import { Routes, Route } from 'react-router-dom';
 import '../styles/index.css';
-import stanleyPark from '../../../assets/stanley_park.jpeg';
-import svgIcon from '../../../assets/save-svgrepo-com.svg';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
-import ClickCounter from '../components/ClickCounter';
+import AppSidebar from './AppSidebar';
+import Board from './Board';
+import IntroParagraph from './IntroParagraph';
+import Trashcan from './Trashcan';
 
-function App() {
+// const mainPath = process.env.REACT_APP_MAIN_PATH;
+export const mainProdPath = '/appsR7/2021/kanban';
+export const mainDevPath = '/';
+
+const App: React.FC = () => {
   return (
-    <div className="App">
+    <div className="kanban-app">
       <Header />
-      <h1>Canban Board.....</h1>
-      <img
-        src={stanleyPark}
-        width="400px"
-        height="300px"
-        alt={stanleyPark}
-      />
-      <img
-        src={svgIcon}
-        width="350px"
-        alt={svgIcon}
-      />
-      <ClickCounter />
-      <Footer />
+      <IntroParagraph />
+      <AppSidebar />
+      <Routes>
+        <Route>
+          <Route
+            path={mainDevPath}
+            // path={mainProdPath}
+            element={<Board />}
+          />
+          <Route
+            // path={`${mainProdPath}/trashcan`}
+            path="/trashcan"
+            element={<Trashcan />}
+          />
+        </Route>
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;
